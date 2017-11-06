@@ -44,7 +44,7 @@ def make_births_and_saints_calendar(data, year):
     for day_number in range(delta.days + 1):
         date = (d1 + datetime.timedelta(days = day_number))
        
-        calendar_date = {"day": date, "births":[], "saints":[]}
+        calendar_date = {"day": [date, date.weekday()], "births":[], "saints":[]}
         if date in birth:
             for person in birth[date]:
                 
