@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+customers {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+customers tr:nth-child(even){background-color: #f2f2f2;}
+
+customers tr:hover {background-color: #ddd;}
+
+customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+}
+</style>
+<table>
+	<tr>
+		<th>Data</th>
+		<th>Aniversari</th>
+		<th>Sant</th>
+	</tr>
+{% for day in calendar %}
+	<tr>
+		<td>{{day["day"].strftime("%d/%m/%2017")}}</td>
+		
+		<td>
+			<table>
+			{% for person in calendar[calendar.index(day)]["births"] %}
+				<tr>	
+					<td>{{person[0][0]}}  {{person[1]}} anys</td>
+				</tr>
+			{% endfor %}
+			</table>		
+		</td>
+		<td>
+			<table>
+			{% for person in calendar[calendar.index(day)]["saints"] %}
+				<tr>
+					<td>{{person}}</td>
+			{% endfor %}
+			</table>	
+		</td>
+	</tr>
+{% endfor %}
+</table>
+
+</head<
+</html>
